@@ -55,7 +55,7 @@
                 {% for product in newest_product_list %}
                     <div class="product-card">
                     <a>
-                        <p class="product-image"><img src="{{ product.image }}"></p>
+                        <p class="product-image"><img src="{{ product.image.url }}"></p>
                         <p class="product-card-title">{{ product.name }}</p>
                         <p class="product-card-price">{{ product.price }}</p>
                     </a>
