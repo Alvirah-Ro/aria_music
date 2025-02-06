@@ -52,13 +52,15 @@
 
             <!-- Scrollable div -->
             <div class="scroll" id="scrollableDiv">
-                <div class="product-card">
+                {% for product in newest_product_list %}
+                    <div class="product-card">
                     <a>
-                        <p class="product-image" style="background-color: lightpink"></p>
-                        <p class="product-card-title">Musical Product</p>
-                        <p class="product-card-price">$29.99</p>
+                        <p class="product-image"><img src="{{ product.image }}"></p>
+                        <p class="product-card-title">{{ product.name }}</p>
+                        <p class="product-card-price">{{ product.price }}</p>
                     </a>
-                </div>
+                    </div>
+                {% endfor %}
 
                 <div class="product-card">
                     <a>

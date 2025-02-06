@@ -9,13 +9,10 @@ class Product(models.Model):
     ProductType = models.TextChoices("ProductType", "INSTRUMENT ACCESSORY MUSIC")
     product_type = models.CharField(blank=True, choices=ProductType, max_length=10)
     price = models.FloatField(default=0)
-    image = models.ImageField(height_field=250, width_field=250)
+    image = models.ImageField(upload_to="media/aria_music")
     date_rec = models.DateTimeField("date received")
     
     def __str__(self):
         return self.sku + " : " + self.name
-    
-    def was_received_recently(self):
-        return self.date_rec >= timezone.now() - datetime.timedelta(days=1)
     
 
