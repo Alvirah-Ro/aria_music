@@ -55,9 +55,9 @@
                 {% for product in newest_product_list %}
                     <div class="product-card">
                     <a>
-                        <p class="product-image"><img src="{{ product.image.url }}"></p>
-                        <p class="product-card-title">{{ product.name }}</p>
-                        <p class="product-card-price">{{ product.price }}</p>
+                        <p class="product-image">{{ product_img }}</p>
+                        <p class="product-card-title">{{ product_name }}</p>
+                        <p class="product-card-price">{{ product_price }}</p>
                     </a>
                     </div>
                 {% endfor %}

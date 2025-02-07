@@ -6,7 +6,4 @@ from django.conf.urls.static import static
 app_name = "aria_music"
 urlpatterns = [
     path("", views.index_view, name="index"),
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
