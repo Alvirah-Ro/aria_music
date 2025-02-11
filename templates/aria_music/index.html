@@ -7,7 +7,27 @@
     <meta name="viewport" content="" width+device-width, inital-scale="1.0">
     <title>Aria Music Website</title>
     <link rel="stylesheet" type="text/css" href="{% static 'aria_music/styles.css' %}">
-    <script type="text/javascript" src="scripts.js"></script>
+    
+    <script>
+
+        function scrollLeftButton(containerId) {
+            const container = document.getElementById(containerId);
+            container.scrollBy({
+                left: -200,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollRightButton(containerId) {
+            const container = document.getElementById(containerId);
+            container.scrollBy({
+                left: 200,
+                behavior: 'smooth'
+            });
+        }
+
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -53,13 +73,14 @@
             <!-- Scrollable div -->
             <div class="scroll" id="scrollableDiv">
                 {% for product in newest_product_list %}
-                    <div class="product-card">
-                    <a>
-                        <p class="product-image"><img src="{% static 'aria_music/' %}{{ product.imgage }}" alt="{{ product.name }}"</p>
-                        <p class="product-card-title">{{ product.name }}</p>
-                        <p class="product-card-price">${{ product.price }}</p>
+                <div class="product-card">
+                    <a href="/product/{{ product.sku }}">
+                        <p class="product-image"><img src="{% static 'aria_music/' %}{{ product.sku }}.jpg"
+                                alt="{{ product.name }}" </p>
+                            <p class="product-card-title">{{ product.name }}</p>
+                            <p class="product-card-price">${{ product.price }}</p>
                     </a>
-                    </div>
+                </div>
                 {% endfor %}
 
                 <div class="product-card">

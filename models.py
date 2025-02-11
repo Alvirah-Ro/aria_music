@@ -9,10 +9,10 @@ class Product(models.Model):
     ProductType = models.TextChoices("ProductType", "INSTRUMENT ACCESSORY MUSIC")
     product_type = models.CharField(blank=True, choices=ProductType, max_length=10)
     price = models.FloatField(default=0)
-    image = models.ImageField(upload_to="static/aria_music")
+    image = models.ImageField(upload_to="aria_music/static/aria_music")
     date_rec = models.DateTimeField("date received")
     
     def __str__(self):
         return self.sku + " : " + self.name
-    
 
+    

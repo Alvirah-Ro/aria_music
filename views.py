@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Product
 
 # Create your views here.
@@ -9,5 +9,12 @@ def index_view(request):
 
     # Return the context to the template
     return render(request, 'aria_music/index.html', {
-        "newest_product_list": newest_product_list,
+        "newest_product_list": newest_product_list
+    })
+
+def product_view(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    
+    return render(request, 'aria_music/product.html', {
+        "product": product
     })
