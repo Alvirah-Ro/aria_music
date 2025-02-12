@@ -40,8 +40,10 @@
     <header>
         <nav>
             <div class="search">
-                <button class="search-button" for="search" type="submit" onclick="submit">Search</button>
-                <input id="search" type="text" placeholder="What are you looking for today?">
+                <form method="GET" action="{% url 'product_search' %}">
+                    <input name="q" type="text" placeholder="What are you looking for today?" value="{{ query }}">
+                    <button class="search-button" type="submit">Search</button>
+                </form>
             </div>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
@@ -74,7 +76,7 @@
             <div class="scroll" id="scrollableDiv">
                 {% for product in newest_product_list %}
                 <div class="product-card">
-                    <a href="/product/{{ product.sku }}">
+                    <a href="product/{{ product.sku }}">
                         <p class="product-image"><img src="{% static 'aria_music/' %}{{ product.sku }}.jpg"
                                 alt="{{ product.name }}" </p>
                             <p class="product-card-title">{{ product.name }}</p>
