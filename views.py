@@ -25,7 +25,7 @@ def product_search_view(request):
     query = request.GET.get("q", "") # Get search query from URL parameter
     products = Product.objects.filter(name__icontains=query) if query else []
 
-    return render(request, 'aria_music/search_results.html', {
+    return render(request, "aria_music/search_results.html", {
         "query": query,
         "products": products
     })
