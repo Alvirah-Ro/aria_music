@@ -41,7 +41,7 @@
         <nav>
 
             <div class="search">
-                <form method="GET" action="{% url 'product_search' %}">
+                <form method="GET" action="{% url 'aria_music:product_search' %}">
                     <input name="q" type="text" placeholder="What are you looking for today?" value="{{ query }}">
                     <button class="search-button" type="submit">Search</button>
                 </form>
