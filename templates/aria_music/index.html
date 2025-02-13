@@ -1,58 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "aria_music/base.html" %}
 
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="" width+device-width, inital-scale="1.0">
-    <title>Aria Music Website</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'aria_music/styles.css' %}">
-    
-    <script>
+{% block title %}Aria Music Website Homepage{% endblock %}
 
-        function scrollLeftButton(containerId) {
-            const container = document.getElementById(containerId);
-            container.scrollBy({
-                left: -200,
-                behavior: 'smooth'
-            });
-        }
-
-        function scrollRightButton(containerId) {
-            const container = document.getElementById(containerId);
-            container.scrollBy({
-                left: 200,
-                behavior: 'smooth'
-            });
-        }
-
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&family=Tangerine:wght@400;700&display=swap"
-        rel="stylesheet">
-</head>
-
-<body>
-
-    <header>
-        <nav>
-            <div class="search">
-                <form method="GET" action="{% url 'product_search' %}">
-                    <input name="q" type="text" placeholder="What are you looking for today?" value="{{ query }}">
-                    <button class="search-button" type="submit">Search</button>
-                </form>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Product Categories</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% block content %}
 
     <div class="banner">
         <div class="banner-text">Aria Music</div>
@@ -77,8 +27,7 @@
                 {% for product in newest_product_list %}
                 <div class="product-card">
                     <a href="product/{{ product.sku }}">
-                        <p class="product-image"><img src="{% static 'aria_music/' %}{{ product.sku }}.jpg"
-                                alt="{{ product.name }}" </p>
+                        <p class="product-image"><img src="{{ product_image_url }}" alt="{{ product.name }}" </p>
                             <p class="product-card-title">{{ product.name }}</p>
                             <p class="product-card-price">${{ product.price }}</p>
                     </a>
@@ -202,69 +151,4 @@
                     onclick="scrollRightButton('scrollableDiv2')">&#8594;</button>
             </div>
     </section>
-
-
-
-    <!--<section  OLD IDEAS 
-        style="background: linear-gradient(0deg, rgba(248, 249, 251, 1) 0%, rgba(222, 226, 235, 1) 50%, rgba(248, 249, 251, 1) 100%)">
-        <h2>Featured Categories</h2>
-        <div class="pop">
-          <p style="margin: 0 0 2em 0;"><a href="/categories.aspx" class="underlined">Shop All</a></p>
-          <div class="card-container">
-            <a class="card-text" href="/c-6-printed-music.aspx">
-              <div class="card">
-                <img src="Images/Skin1/music.jpg" loading="lazy" alt="Sheet Music on Music Stand" width="250" height="250">
-                <p>Music</p>
-              </div>
-            </a>
-            <a class="card-text" href="/c-528-recorders-recorder-methods.aspx">
-              <div class="card">
-                <img src="Images/recorder-min.jpg" loading="lazy" alt="Young Girl Playing Recorder" width="250"
-                  height="250">
-                <p>Recorders</p>
-              </div>
-            </a>
-            <a class="card-text" href="/c-314-handbells-music-accessories.aspx">
-              <div class="card">
-                <img src="Images/Skin1/bellgirlsnew.jpg" loading="lazy" alt="Woman and girl with handbells" width="250"
-                  height="250">
-                <p>Handbells</p>
-              </div>
-            </a>
-            <a class="card-text" href="/c-2087-classroom-children.aspx">
-              <div class="card">
-                <img src="Images/Skin1/featured436a.jpg" loading="lazy" alt="Kids playing Mallets" width="250" height="250">
-                <p>Classroom</p>
-              </div>
-            </a>
-            <a class="card-text" href="/c-1051-guitar-and-bass.aspx">
-              <div class="card">
-                <img src="Images/Skin1/guitar.jpg" loading="lazy" alt="Close-up of a Guitar" width="250" height="250">
-                <p>Guitars</p>
-              </div>
-            </a>
-            <a class="card-text" href="/c-2103-drums-percussion.aspx">
-              <div class="card">
-                <img src="Images/Skin1/drumsSmall.jpg" loading="lazy" alt="Drumset" width="250" height="250">
-                <p>Percussion</p>
-              </div>
-            </a>
-            <a class="card-text" href="/c-28-woodwind-instruments-and-accessories.aspx">
-              <div class="card">
-                <img src="Images/Skin1/woodwinds.jpg" loading="lazy" alt="Clarinet Players" width="250" height="250">
-                <p>Woodwinds</p>
-              </div>
-            </a>
-            <a class="card-text" href="/c-3-brass-instruments-and-accessories.aspx">
-              <div class="card">
-                <img src="Images/Skin1/brass.jpg" loading="lazy" alt="trombone player" width="250" height="250">
-                <p>Brass</p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>-->
-
-</body>
-
-</html>
+{% endblock %}

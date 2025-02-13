@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "aria_music/base.html" %}
 
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="" width+device-width, inital-scale="1.0">
-    <title>Aria Music Website</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'aria_music/styles.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&family=Tangerine:wght@400;700&display=swap"
-        rel="stylesheet">
-</head>
+{% block title %}Aria Music Product Details{% endblock %}
 
-<body>
+{% block content %}
+
     <div>
         {% if product.sku %}
             <img src="{% static 'aria_music/' %}{{ product.sku }}.jpg">
@@ -25,6 +14,5 @@
             <p>Product was not found.</p>
         {% endif %}
     </div>
-</body>
 
-</html>
+{% endblock %}
