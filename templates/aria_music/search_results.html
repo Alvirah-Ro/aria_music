@@ -3,13 +3,12 @@
 {% block title %}Aria Music Search Results{% endblock %}
 
 {% block content %}
-
     <div>       
         {% if products %}
             {% for product in products %}
                 <a href="product/{{ product.sku }}">
                     <p>{{ product.name}}</p>
-                    <p class="product-image"><img src="{% static 'aria_music/' %}{{ product.sku }}.jpg"></p>
+                    <p class="product-image"><img src="{{ product_image_url }}" alt="{{ product.name }}"></p>
                     <p>{{ product.price }}</p>    
                     <p>{{ product.price }}</p>
                 </a>

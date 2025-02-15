@@ -5,7 +5,7 @@
 {% block content %}
 
     <div>
-        {% if product.sku %}
+        {% if product %}
             <img src="{% static 'aria_music/' %}{{ product.sku }}.jpg">
             <p>{{ product.name }}</p>
             <p>{{ product.price }}</p>
