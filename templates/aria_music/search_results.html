@@ -9,7 +9,7 @@
     <div>       
         {% if products %}
             {% for product in products %}
-                <a href="product/{{ product.sku }}">
+                <a href="{% url 'product_detail' product.sku %}">
                     <p class="product-image"><img src="{% static 'aria_music/' %}{{ product.sku }}.jpg" alt="{{ product.name }}"></p>
                     <p>{{ product.name }}</p>    
                     <p>{{ product.price }}</p>

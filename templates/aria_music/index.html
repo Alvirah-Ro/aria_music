@@ -28,7 +28,7 @@
             <div class="scroll" id="scrollableDiv">
                 {% for product in newest_product_list %}
                 <div class="product-card">
-                    <a href="product/{{ product.sku }}">
+                    <a href="{% url 'product_detail' product.sku %}">
                         <p class="product-image"><img src="{% static 'aria_music/' %}{{ product.sku }}.jpg" alt="{{ product.name }}"></p>
                         <p class="product-card-title">{{ product.name }}</p>
                         <p class="product-card-price">${{ product.price }}</p>
