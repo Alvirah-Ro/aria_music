@@ -1,0 +1,8 @@
+{
+    "title": "Aria Music Website",
+    "description": "Homepage of an e-commerce website for a small music business.",
+    "image": "https://raw.githubusercontent.com/Alvirah-Ro/portfolio-site/main/assets/portfolio.png",
+    "github": "https://github.com/Alvirah-Ro/aria_music",
+    "liveDemo": "https://yourportfolio.com",
+    "technologies": ["Django", "Python"]
+}
